@@ -16,7 +16,8 @@ Pré-requisitos:
 
     Rails
 
-    PostgreSQL
+    Mysql
+
 [¹]:Os passos foram pensados para terminal Bash.
 
 Passos: 

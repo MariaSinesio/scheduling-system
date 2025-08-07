@@ -58,9 +58,10 @@ jobs:
 
     services:
       mysql:
-        image: mysql
+        image: mysql:8.0
         env:
-          MYSQL_ROOT_PASSWORD: ${{ secrets.MYSQL_PASSWORD }} #Erro na troca 
+          MYSQL_ROOT_PASSWORD: ${{ secrets.MYSQL_PASSWORD }}
+          MYSQL_DATABASE: scheduling_test
         ports:
           - 3306:3306
         options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
@@ -87,8 +88,8 @@ jobs:
       - name: Run tests
         env:
           RAILS_ENV: test
-          DATABASE_URL: mysql2://root:${{ secrets.MYSQL_PASSWORD }}@127.0.0.1:3306/scheduling_test #Já que definimos um secret, temosque por aqui para não dar bosta de novo no Github Action
-          # REDIS_URL: redis://localhost:6379/0
+          MYSQL_PASSWORD: ${{ secrets.MYSQL_PASSWORD }}
+          # URL só atrapalha
         run: bin/rails db:test:prepare test test:system
 
       - name: Keep screenshots from failed system tests

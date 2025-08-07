@@ -60,7 +60,7 @@ jobs:
       mysql:
         image: mysql
         env:
-          MYSQL_ALLOW_EMPTY_PASSWORD: ${{ secrets.MYSQL_PASSWORD }} #Não é false
+          MYSQL_ROOT_PASSWORD: ${{ secrets.MYSQL_PASSWORD }} #Erro na troca 
         ports:
           - 3306:3306
         options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3

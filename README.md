@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ## 🖥️ Scheduling System
 
 ### Visão Geral

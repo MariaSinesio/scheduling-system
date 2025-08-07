@@ -16,7 +16,7 @@ Pré-requisitos:
 
     Rails
 
-    PostgreSQL
+    MySQL
 [¹]:Os passos foram pensados para terminal Bash.
 
 Passos: 
@@ -35,7 +35,7 @@ bundle install
 ````
 
 Configure o banco de dados:
-Certifique-se de que seu PostgreSQL está em *execução*. Em seguida, crie e migre o banco de dados.
+Certifique-se de que seu MySQL está em *execução*. Em seguida, crie e migre o banco de dados.
 
 ````
 rails db:create

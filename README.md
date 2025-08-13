@@ -1,9 +1,8 @@
-<<<<<<< HEAD
 ## 🖥️ Scheduling System
 
 ### Visão Geral
 
-O ***Scheduling System*** é uma aplicação em Ruby on Rails projetada para gerenciar agendamentos de forma eficiente. O sistema permite que os usuários se cadastrem, gerenciem seus perfis e também os de seus dependentes, facilitando a marcação de compromissos para toda a família em um só lugar. Este projeto utiliza Ruby on Rails como framework principal, PostgreSQL como banco de dados, Devise para autenticação de usuários e Tailwind CSS para a estilização da interface.
+O ***Scheduling System*** é uma aplicação em Ruby on Rails projetada para gerenciar agendamentos de forma eficiente. O sistema permite que os usuários se cadastrem, gerenciem seus perfis e também os de seus dependentes, facilitando a marcação de compromissos para toda a família em um só lugar. Este projeto utiliza Ruby on Rails como framework principal, MySQL como banco de dados e Devise para autenticação de usuários
 
 #### Como Executar o Projeto
 
@@ -17,7 +16,8 @@ Pré-requisitos:
 
     Rails
 
-    PostgreSQL
+    Mysql
+
 [¹]:Os passos foram pensados para terminal Bash.
 
 Passos: 
@@ -36,7 +36,7 @@ bundle install
 ````
 
 Configure o banco de dados:
-Certifique-se de que seu PostgreSQL está em *execução*. Em seguida, crie e migre o banco de dados.
+Certifique-se de que seu MySQL está em *execução*. Em seguida, crie e migre o banco de dados.
 
 ````
 rails db:create

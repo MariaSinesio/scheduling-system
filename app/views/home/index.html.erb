@@ -1,0 +1,33 @@
+<% if user_signed_in? %>
+
+<h1>Welcome, <%= current_user.name %></h1>
+
+<%= link_to 'Sign out', destroy_user_session_path, data: { turbo_method: :delete } %>
+
+<% else %>
+
+<header>
+
+<div>
+
+<%= link_to 'Login', new_user_session_path %>
+
+<% end %>
+
+</div>
+
+</header>
+
+<h1>Bem vindo a Beep Saúde</h1>
+
+<a href="/users/sign_in">
+
+<button type="button">Exames</button>
+
+</a>
+
+<a href="/users/sign_in">
+
+<button type="button">Vacinas</button>
+
+</a>

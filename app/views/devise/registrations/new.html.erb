@@ -1,53 +1,55 @@
-<h2>Sign up</h2>
+<h2>Criar uma conta</h2>
+<p>Vamos precisar desses dados para entrar em contato com você.</p>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  <br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email",  placeholder: "Seu email" %>
   </div>
 
 
 <div class="field">
-<%= f.label :seu_nome %><br />
-<%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+<br />
+<%= f.text_field :name, autofocus: true, autocomplete: "name",  placeholder: "Seu nome" %>
 </div>
 
 <div class="field">
-<%= f.label :sobrenome%><br />
-<%= f.text_field :surname, autofocus: true, autocomplete: "surname" %>
+<br />
+<%= f.text_field :surname, autofocus: true, autocomplete: "surname",  placeholder: "Seu sobrenome"%>
 </div>
 
 <div class="field">
-<%= f.label :cpf %><br />
-<%= f.text_field :cpf, autofocus: true, autocomplete: "cpf" %>
+<br />
+<%= f.text_field :cpf, autofocus: true, autocomplete: "cpf",  placeholder: "Seu CPF" %>
 </div>
 
 <div class="field">
-<%= f.label :data_de_nascimento%><br />
-<%= f.date_field :birth_date %>
+<br />
+<%= f.date_field :birth_date,  placeholder: "Sua data de nascimento"%>
 </div>
 
 <div class="field">
-<%=f.label :sexo%> <br/>
-<%= f.select :gender, [['Selecione', :default], ['Feminino', 'fem'], ['Masculino', 'man']]%>
+ <br/>
+<%= f.select :gender, [['Selecione', :default], ['Feminino', 'fem'], ['Masculino', 'man']],  placeholder: "Sexo"%>
 <%# ferramenta do form -- select %>
 </div>
 
 
   <div class="field">
-    <%= f.label :password %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+    <% end %>
+    <br />
+    <%= f.password_field :password, autocomplete: "new-password",  placeholder: "Crie sua senha" %>
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+   <br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password",  placeholder: "Confirme sua senha"%>
   </div>
+
 
   <div class="actions">
     <%= f.submit "Sign up" %>

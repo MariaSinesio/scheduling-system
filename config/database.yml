@@ -30,6 +30,8 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
+  adapter:  sqlite3
+  database: db/test.sqlite3
   host: 127.0.0.1
   port: 3306
   username: <%= Rails.application.credentials.dig(:local_database, :username) %>

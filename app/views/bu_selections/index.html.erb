@@ -4,18 +4,13 @@
 
 <%= button_to "Sign out", destroy_user_session_path, method: :delete  %> 
 
-<%# Tive que trocar para um button, simplesmentenão estava funcionando o link_to. Por que? Ninguem sabe. %>
-
-<%# <% else %>
+<%# Tive que trocar para um button, simplesmente não estava funcionando o link_to. Por que? Ninguem sabe. %>
 
 <%# data: { turbo_method: ":delete" } %> 
-
-<%# method: :delete %>
-
 <%end%>
 
-<h1>Agende sua vacinação</h1>
 
+<h1>Agende sua vacinação</h1>
 <div>
-<h2>Febre amarela</h2>
+<%# <%= link_to "Febre Amarela", bu_selection_profile_associates_path(@bu_selection)%>
 </div>

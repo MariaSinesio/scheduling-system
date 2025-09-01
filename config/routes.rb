@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resources :bu_selections, only: %i[index show new destroy] do
       resources :profile_associates, only: %i[index show new destroy] do
         get "data_vaccines/:id", to: "data_vaccines#index"
-       # resources :data_vaccines, only: %i[index]
+       # resources :data_vaccines, only: %i[index new]
      end
     end
   end # Fluxo aninhado de rotas

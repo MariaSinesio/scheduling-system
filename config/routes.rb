@@ -1,10 +1,15 @@
 Rails.application.routes.draw do
+  # resources :cart_items
+  # resources :carts
   root "home#index"
 
   devise_for :users
 
   authenticate :user do
-    resources :bu_selections, only: %i[index show new destroy] do
+    resources :bu_selections, only: %i[index] do
+      post :add_to_cart
+      delete :delete_to_cart
+      post :finalize_cart
       resources :profile_associates, only: %i[index show new destroy] do
         get "data_vaccines/:id", to: "data_vaccines#index"
        # resources :data_vaccines, only: %i[index new]

@@ -9,6 +9,7 @@ class User < ApplicationRecord
  validates :cpf, presence: true, length: { is: 11 }, uniqueness: { case_sensitive: true }, cpf: true
  validates :cellphone, presence: true, length: { minimum: 9, maximum: 12 }, uniqueness: { case_sensitive: true }, cellphone: true # Com x: invés de :x
  validates :password, password: true
+  # Referencia ao carrinho
 end
 
 # "^9\d{4}-?\d{4}"

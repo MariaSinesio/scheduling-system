@@ -5,53 +5,53 @@
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
-  <br />
+    <br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email",  placeholder: "Seu email" %>
   </div>
 
 
-<div class="field">
-<br />
-<%= f.text_field :name, autofocus: true, autocomplete: "name",  placeholder: "Seu nome" %>
-</div>
+  <div class="field">
+    <br />
+    <%= f.text_field :name, autofocus: true, autocomplete: "name",  placeholder: "Seu nome" %>
+  </div>
 
-<div class="field">
-<br />
-<%= f.text_field :surname, autofocus: true, autocomplete: "surname",  placeholder: "Seu sobrenome"%>
-</div>
+  <div class="field">
+    <br />
+    <%= f.text_field :surname, autofocus: true, autocomplete: "surname",  placeholder: "Seu sobrenome"%>
+  </div>
 
-<div class="field">
-<br />
-<%= f.text_field :cpf, autofocus: true, autocomplete: "cpf",  placeholder: "Seu CPF" %>
-</div>
+  <div class="field">
+    <br />
+    <%= f.text_field :cpf, autofocus: true, autocomplete: "cpf",  placeholder: "Seu CPF" %>
+  </div>
 
-<div class="field">
-<br />
-<%= f.date_field :birth_date,  placeholder: "Sua data de nascimento"%>
-</div>
+  <div class="field">
+    <br />
+    <%= f.date_field :birth_date,  placeholder: "Sua data de nascimento"%>
+  </div>
 
-<div class="field">
-<br />
-<%= f.text_field :cellphone, autofocus: true, autocomplete: "cellphone",  placeholder: "Seu telefone-celular" %>
-</div>
+  <div class="field">
+    <br />
+    <%= f.text_field :cellphone, autofocus: true, autocomplete: "cellphone",  placeholder: "Seu telefone-celular" %>
+  </div>
 
-<div class="field">
- <br/>
-<%= f.select :gender, [['Selecione', :default], ['Feminino', 'fem'], ['Masculino', 'man']],  placeholder: "Sexo"%>
+  <div class="field">
+    <br/>
+    <%= f.select :gender, [['Selecione', :default], ['Feminino', 'fem'], ['Masculino', 'man']],  placeholder: "Sexo"%>
 <%# ferramenta do form -- select %>
-</div>
+  </div>
 
 
   <div class="field">
     <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %>
     <br />
     <%= f.password_field :password, autocomplete: "new-password",  placeholder: "Crie sua senha" %>
   </div>
 
   <div class="field">
-   <br />
+    <br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password",  placeholder: "Confirme sua senha"%>
   </div>
 

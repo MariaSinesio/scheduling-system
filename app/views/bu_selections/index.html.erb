@@ -1,27 +1,31 @@
 <header>
-<% if user_signed_in? %>
+  <% if user_signed_in? %>
 
-<h3>Welcome, <%= current_user.name %></h3>
+    <h3>Welcome, <%= current_user.name %></h3>
 
-<%= button_to "Sign out", destroy_user_session_path, method: :delete  %> 
+    <%= button_to "Sign out", destroy_user_session_path, method: :delete  %>
 
-<%end%>
+  <%end%>
+
 </header>
 <%# Tive que trocar para um button, simplesmente não estava funcionando o link_to. Por que? Ninguem sabe. %>
 
-<%# data: { turbo_method: ":delete" } %> 
-
-
 <h1>Agende sua vacinação</h1>
+
 <div>
- <% @vaccines.each do |v| %>
- <li><%= v.name %></li>
- <li><%= v.technical_name%></li>
- <li><strong>R$ <%= v.price%> </strong></li>
-   <%= button_to "+", bu_selection_add_to_cart_path(:vaccine_id, v.id), method: :post%> 
-  <%= button_to "-", bu_selection_delete_to_cart_path(:vaccine_id), method: :delete%>
-<%end%>
-<%# <%= @count%> 
- <%= button_to "Finalizar a compra", bu_selection_finalize_cart_path(:bu_selection_id), method: :post%>
+  <% @vaccines.each do |v| %>
+    <ul>
+    <li><%= v.name %></li>
+    <li><%= v.technical_name%></li>
+    <li><strong>R$ <%= v.price%> </strong></li>
+    </ul>
+
+    <%= button_to "+", bu_selection_add_to_cart_path(:vaccine_id, v.id), method: :post%>
+    <%= button_to "-", bu_selection_delete_to_cart_path(:vaccine_id), method: :delete%>
+
+  <%end%>
+
+  <%= button_to "Finalizar a compra", bu_selection_finalize_cart_path(:bu_selection_id), method: :post%>
+
 </div>
 

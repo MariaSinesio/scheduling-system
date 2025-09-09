@@ -1,14 +1,13 @@
 class BuSelectionsController < ApplicationController
-  
   skip_before_action :authenticate_user!
   def index
     @vaccines = Vaccine.all
     @cart = session[:cart] || {}
   end
-  
+
   def new
   end
-  
+
   def show
   end
   def add_to_cart

@@ -20,12 +20,14 @@
     <li><strong>R$ <%= v.price%> </strong></li>
     </ul>
 
-    <%= button_to "+", bu_selection_add_to_cart_path(:vaccine_id, v.id), method: :post%>
-    <%= button_to "-", bu_selection_delete_to_cart_path(:vaccine_id), method: :delete%>
+    <%= button_to "+", add_to_cart_bu_selections_path(vaccine_id: v.id), method: :post%>
+    <%= button_to "-", delete_to_cart_bu_selections_path(vaccine_id: v.id), method: :delete%> 
+
 
   <%end%>
 
-  <%= button_to "Finalizar a compra", bu_selection_finalize_cart_path(:bu_selection_id), method: :post%>
+  <%= button_to "Finalizar a compra", finalize_cart_bu_selections_path, method: :post%>
 
 </div>
 
+<%# Aqui estava acontecendo um problema, eu estava passando vaccine_id como objeto invés de uma chave, por isso estava dando problema, ou seja, eu arrebentei minha logica em ia achando que era problema no controller %>

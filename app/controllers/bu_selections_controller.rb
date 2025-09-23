@@ -5,14 +5,10 @@ class BuSelectionsController < ApplicationController
     @cart = session[:cart] || {}
   end
 
-  def new
-  end
-
-  def show
-  end
   def add_to_cart
     session[:cart] ||= {} # SÓ inicializa caso não exista
-    session[:cart][params[:vaccine_id]] ||= 0 # Operador ||= define um valor padrão para uma variável caso o valor não seja atribuido inicialmente
+
+    session[:cart][params[:vaccine_id]] ||= 0
     session[:cart][params[:vaccine_id]] += 1
     redirect_to bu_selections_path, notice: "Vacina adicionada com sucesso!"
   end
@@ -29,11 +25,15 @@ class BuSelectionsController < ApplicationController
       end
     end
   end
+
   def finalize_cart
     if session[:cart].blank?
-      redirect_to bu_selections_path, notice: "O carrinho está vazio, não é possível continuar."
+    redirect_to bu_selections_path, notice: "O carrinho está vazio, não é possível continuar."
     else
-      redirect_to bu_selection_profile_associates_path, notice: "Finalizando o pedido. Siga os próximos passos." # Ao finalizar, leva o usuário a proxima etapa.
+       session[:selected_vaccine_ids] = session[:cart].keys  # Salva a escolha do usuário, é importante ter isso em mente
+    redirect_to select_profile_profile_associates_path, notice: "Finalizando o pedido. Siga os próximos passos."
     end
   end
 end
+
+# Operador ||= define um valor padrão para uma variável caso o valor não seja atribuido inicialmente

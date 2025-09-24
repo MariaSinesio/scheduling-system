@@ -1,26 +1,25 @@
 Rails.application.routes.draw do
-  # resources :cart_items
-  # resources :carts
   root "home#index"
 
   devise_for :users
 
   authenticate :user do
     resources :bu_selections, only: %i[index] do
-      post :add_to_cart
-      delete :delete_to_cart
-      post :finalize_cart
-      resources :profile_associates, only: %i[index show new destroy] do
-        get "data_vaccines/:id", to: "data_vaccines#index"
-       # resources :data_vaccines, only: %i[index new]
-     end
+      collection do
+      post :add_to_cart, to: "bu_selections#add_to_cart", as: "add_to_cart"
+      delete :delete_to_cart, to:  "bu_selections#delete_to_cart", as: "delete_to_cart"
+      post :finalize_cart, to: "bu_selections#finalize_cart", as: "finalize_cart"
+      end
     end
-  end # Fluxo aninhado de rotas
+      resources :profile_associates, only: %i[index new create] do
+        collection do
+         get "select_profile"
+        # get "data_vaccines/:id", to: "data_vaccines#index"
+      end
+    end
+  end
 
   get "up" => "rails/health#show", as: :rails_health_check
-
-
-
 
   # A FAZER
   # Rota de endereço ANTES de encaminhar para a escolha de vacina ou exame (Controller e view)

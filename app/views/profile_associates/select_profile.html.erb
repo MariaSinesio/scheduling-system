@@ -1,0 +1,18 @@
+<h1>Quem vai ser vacinado?</h1>
+
+<div>
+    <% @vaccines.each do |vc| %>
+    <li><%=vc.name%></li>
+    <%end%>
+
+
+    
+    <%# <%= @vaccines.inspect%>
+    
+<%# <%= Rails.logger.debug "PARAMS: #{params[:vaccine_ids].inspect}" %> 
+<%# <%= Rails.logger.debug "SESSION: #{session[:selected_vaccine_ids].inspect}" %>
+<%# <%= Rails.logger.debug "VACCINES: #{@vaccines.inspect}" %> 
+
+    <%# Resposta do Debug: #<ActiveRecord::Relation []> 
+%>
+</div>

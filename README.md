@@ -51,7 +51,7 @@ Agora, você pode acessar a aplicação em seu navegador através do endereço h
 
 #### Etapas do Fluxo de Agendamento
 
-1. Registro Inicial
+###### 1. Registro Inicial
 
 Para utilizar o sistema, o usuário deve realizar um cadastro inicial fornecendo as seguintes informações:
 
@@ -63,7 +63,7 @@ Para utilizar o sistema, o usuário deve realizar um cadastro inicial fornecendo
   - *Contato: Telefone celular e e-mail.*
 
     
-2. Validação de Dados
+###### 2. Validação de Dados
 
 Garantir validações robustas através de:
 
@@ -71,7 +71,7 @@ Garantir validações robustas através de:
 
   - *E-mail: O formato do e-mail é verificado para garantir que siga um padrão válido (ex: usuario@dominio.com).* 
 
-3. Senha Segura
+###### 3. Senha Segura
 
 A segurança da conta é reforçada por requisitos de complexidade para a senha, que deve conter:
 
@@ -83,6 +83,6 @@ A segurança da conta é reforçada por requisitos de complexidade para a senha,
 
   - *Pelo menos um caractere especial (ex: !, @, #, $).*
 
-4. Gerenciamento de Dependentes
+###### 4. Gerenciamento de Dependentes
 
 Após o cadastro, o usuário principal pode adicionar e gerenciar perfis de dependentes (como filhos ou idosos). Cada dependente possui um cadastro com as mesmas informações básicas do titular, permitindo que o usuário principal realize agendamentos em nome deles de forma simples e centralizada.

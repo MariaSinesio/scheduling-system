@@ -22,6 +22,7 @@ class ProfileAssociatesController < ApplicationController
   end
 
   def index
+    @profiles = Profile.all
     @profiles = current_user.profiles.includes(:vaccines)
   end
 

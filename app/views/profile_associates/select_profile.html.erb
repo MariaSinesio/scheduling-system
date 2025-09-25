@@ -1,18 +1,14 @@
 <h1>Quem vai ser vacinado?</h1>
 
-<div>
+<div id="div-vaccines">
     <% @vaccines.each do |vc| %>
-    <li><%=vc.name%></li>
+    <li>💉<strong> <%=vc.name%> </strong> </li>
     <%end%>
 
-
-    
-    <%# <%= @vaccines.inspect%>
-    
-<%# <%= Rails.logger.debug "PARAMS: #{params[:vaccine_ids].inspect}" %> 
-<%# <%= Rails.logger.debug "SESSION: #{session[:selected_vaccine_ids].inspect}" %>
-<%# <%= Rails.logger.debug "VACCINES: #{@vaccines.inspect}" %> 
-
-    <%# Resposta do Debug: #<ActiveRecord::Relation []> 
-%>
+     <p>Para quem é essa vacina?</p>
 </div>
+
+ <script>
+    let div = document.getElementById("div-vaccines")
+    div.addEventListener("click", () => window.location.href = "")
+ </script>

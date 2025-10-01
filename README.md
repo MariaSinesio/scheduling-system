@@ -85,4 +85,4 @@ A segurança da conta é reforçada por requisitos de complexidade para a senha,
 
 ###### 4. Gerenciamento de Dependentes
 
-Após o cadastro, o usuário principal pode adicionar e gerenciar perfis de dependentes (como filhos ou idosos). Cada dependente possui um cadastro com as mesmas informações básicas do titular, permitindo que o usuário principal realize agendamentos em nome deles de forma simples e centralizada.
+Após o cadastro, o usuário principal pode adicionar e gerenciar perfis de dependentes (_como filhos ou idosos_). Cada dependente possui um cadastro com as mesmas informações básicas do titular, permitindo que o usuário principal realize agendamentos em nome deles de forma simples e centralizada.

@@ -10,27 +10,28 @@ class ProfileAssociatesController < ApplicationController
   @vaccines = Vaccine.where(id: vaccine_ids)
 
   if @vaccines.empty?
-    redirect_to bu_selections_path, alert: "Nenhuma vacina encontrada"
+    redirect_to bu_selections_path, alert: "Nenhuma vacina encontrada, tente novamente"
     return
   end
 
-  @profile = current_user.profiles.build
+  @profile = current_user.profiles.build # Forms
   end
 
   def profile_params
-    params.require(:profile).permit(:name, :relation, vaccine_ids: [])
+    params.require(:profile).permit(:name, :relations, :gender, :birth_date, :surname, vaccine_ids: [])
   end
 
   def index
-    @profiles = Profile.all
-    @profiles = current_user.profiles.includes(:vaccines)
+    @profiles = current_user.profiles.includes(:vaccines) # Isso é parecido com Profile.all
   end
 
   def new
-    @profile = current_user.profiles.build
+    @profile = current_user.profiles.build # Uso comum em tutoriais, é uma forma mais rails de escrever
+    # @user = User.find(params[:user_cpf]) if params[:user_cpf].present?
   end
   def create
- @profile = current_user.profiles.build(profile_params)
+ @profile = current_user.profiles.build(profile_params) # new profile(profile_params) é equivalente a isso
+ @profile.vaccine_ids = session[:selected_vaccine_ids] if session[:selected_vaccine_ids].present? # Só verificando
 
   if @profile.save
     session[:cart] = {}

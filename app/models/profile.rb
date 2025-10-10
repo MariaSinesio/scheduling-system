@@ -3,5 +3,5 @@ class Profile < ApplicationRecord
   has_many :profile_vaccines # Um usuário tem muitos perfis
   has_many :vaccines, through: :profile_vaccines
 
-  validates :name, :relation, presence: true
+  validates :name, :relations, :gender, :birth_date, :surname, presence: true
 end

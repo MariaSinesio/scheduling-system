@@ -1,14 +1,18 @@
 <h1>Quem vai ser vacinado?</h1>
 
-<div id="div-vaccines">
+<div id="div-vaccines" style="cursor:pointer;">
+
     <% @vaccines.each do |vc| %>
     <li>💉<strong> <%=vc.name%> </strong> </li>
     <%end%>
 
-     <p>Para quem é essa vacina?</p>
 </div>
+
+  <p style="font-size:small;"> ‼️Selecione um perfil para prosseguir</p>
+
+  <%= button_to "Prosseguir", data_vaccines_profile_associates_path %>
 
  <script>
     let div = document.getElementById("div-vaccines")
-    div.addEventListener("click", () => window.location.href = "")
+    div.addEventListener("click", () => window.location.href = "http://127.0.0.1:3000/profile_associates")
  </script>

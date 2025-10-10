@@ -1,11 +1,9 @@
 <h1 style="text-align:center;">Para quem é a vacina(s) selecionada(s)?</h1>
-
-<div>
-    <% @profiles.each do |pf|%>
-    <li><%= pf.name%></li>
-    <%end%>
+<div id="div-profile">
+<% @profiles.each do |pr|%>
+<li><%= pr.name%> <%=pr.surname%></li>
+<%end%>
 </div>
 
-<div>
-    <%= link_to "Adicionar perfil", new_profile_associate_path, method: :post%>
-</div>
+<%= link_to "Adicionar perfil", new_profile_associate_path%>
+

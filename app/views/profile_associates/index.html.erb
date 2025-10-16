@@ -1,9 +1,24 @@
 <h1 style="text-align:center;">Para quem é a vacina(s) selecionada(s)?</h1>
-<div id="div-profile">
+<div id="div-profile"> 
 <% @profiles.each do |pr|%>
 <li><%= pr.name%> <%=pr.surname%></li>
 <%end%>
 </div>
 
 <%= link_to "Adicionar perfil", new_profile_associate_path%>
+
+<%# É necessário tornar o perfil selecionável, a fim de selecionar a vacina para o respectivo dependente %>
+<%# Ou seja, terá a vacina selecionada pelo user e a partir de cada vacina selecionada, será possível selecionar o dependente de acordo com o número de bu  %>
+<%# Entretanto, por uma questão de facilidade, inicialmente o usuário seleciona a vacina e depois o perfil do dependente, independente da quantidade de vacina, deixando essas questões para depois %>
+
+<%# User --- Vacina ---- Vacina selecionada ---- seleciona 1 das vacinas ---- Perfis disponíveis ---- Seleciona um perfil para aquela vacina%>
+
+<script>
+let profileDiv = document.getEelementById("div-profile")
+profileDiv.addEventListener("click", (event) => {
+event.target.tagName === 'li' 
+})
+</script>
+
+
 

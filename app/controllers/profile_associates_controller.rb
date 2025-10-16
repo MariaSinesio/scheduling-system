@@ -5,7 +5,10 @@ class ProfileAssociatesController < ApplicationController
   if vaccine_ids.blank?
     redirect_to bu_selections_path, alert: "Não foi possível recuperar as vacinas selecionadas"
     return
+
   end
+
+  @vaccines = Vaccine.with_profiles.where(id: vaccine_ids)
 
   @vaccines = Vaccine.where(id: vaccine_ids)
 

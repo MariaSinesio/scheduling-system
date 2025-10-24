@@ -15,6 +15,7 @@ Rails.application.routes.draw do
         collection do
          get "select_profile"
           post "data_vaccines", to: "data_vaccines#index"
+          post "associate"
       end
     end
   end

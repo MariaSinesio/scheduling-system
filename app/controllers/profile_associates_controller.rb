@@ -1,24 +1,46 @@
 class ProfileAssociatesController < ApplicationController
-  def select_profile
-  vaccine_ids = session[:selected_vaccine_ids]&.map(&:to_i)
+  before_action :ensure_booking_tk, only: [ :select_profile, :associate ]
 
-  if vaccine_ids.blank?
+  def select_profile
+   vaccine_ids = session[:selected_vaccine_ids].map(&:to_i)
+
+   if vaccine_ids.blank?
     redirect_to bu_selections_path, alert: "Não foi possível recuperar as vacinas selecionadas"
     return
+   end
 
+   @vaccines = Vaccine.with_profiles.where(id: vaccine_ids)
+
+   @profiles = current_user.profiles.includes(:appointments)
+   @profile = current_user.profiles.build
   end
 
-  @vaccines = Vaccine.with_profiles.where(id: vaccine_ids)
 
-  @vaccines = Vaccine.where(id: vaccine_ids)
+  def associate
+  profile_association = current_user.profiles.find_by(id: params[:profile_id])
+  vaccine = Vaccine.find_by(id: params[:vaccine_id])
+  tk = session[:booking_token]
+  if !profile_association
+    redirect_to profile_associates_path, alert: "Perfil não encontrado."
 
-  if @vaccines.empty?
-    redirect_to bu_selections_path, alert: "Nenhuma vacina encontrada, tente novamente"
-    return
+  elsif !vaccine
+    redirect to select_profile_profile_associates_path, alert: "Sinto muito, a vacina selecionada não foi encontrada"
+  else
+    appointment = Appointment.new(profile: profile_association, vaccine: vaccine, booking_tk: tk)
+     if appointment.save
+    redirect_to select_profile_profile_associates_path, notice: "#{profile_association.name} associado à #{vaccine.name}."
+     else
+    redirect_to select_profile_profile_associates_path, alert: "Não foi possível associar o perfil à vacina. Tente novamente."
+     end
+  end
   end
 
-  @profile = current_user.profiles.build # Forms
-  end
+  private
+
+ def ensure_booking_tk
+  session[:booking_tk] ||= SecureRandom.hex(10) # Isso aqui basicamente gera um token aleatório, é seguro
+ end
+
 
   def profile_params
     params.require(:profile).permit(:name, :relations, :gender, :birth_date, :surname, vaccine_ids: [])
@@ -33,8 +55,8 @@ class ProfileAssociatesController < ApplicationController
     # @user = User.find(params[:user_cpf]) if params[:user_cpf].present?
   end
   def create
- @profile = current_user.profiles.build(profile_params) # new profile(profile_params) é equivalente a isso
- @profile.vaccine_ids = session[:selected_vaccine_ids] if session[:selected_vaccine_ids].present? # Só verificando
+    @profile = current_user.profiles.build(profile_params) # new profile(profile_params) é equivalente a isso
+    @profile.vaccine_ids = session[:selected_vaccine_ids] if session[:selected_vaccine_ids].present? # Só verificando
 
   if @profile.save
     session[:cart] = {}

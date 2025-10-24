@@ -3,7 +3,9 @@
 <div id="div-vaccines" style="cursor:pointer;">
 
     <% @vaccines.each do |vc| %>
-    <li>💉<strong> <%=vc.name%> </strong> </li>
+    <li>
+      💉<strong> <%=vc.name%> </strong> <p id="vc-size"> <%= vc.profiles.size %> </p>
+    </li> 
     <%end%>
 
 </div>

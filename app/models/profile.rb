@@ -4,4 +4,11 @@ class Profile < ApplicationRecord
   has_many :vaccines, through: :profile_vaccines
 
   validates :name, :relation, presence: true
+
+  has_and_belongs_to_many :vaccines
+
+  validates :name, :relations, :gender, :birth_date, :surname, presence: true
+
+  has_many :appointments, dependent: :destroy
+  has_many :booked_vaccines, through: :appointments, source: :vaccine
 end

@@ -1,0 +1,28 @@
+        <h1 style="text-align:center;">Para quem é a vacina(s) selecionada(s)?</h1>
+
+
+    <%= form_for @profile, url: profile_associates_path do |i|%>
+    <div class="field">
+ <%= i.text_field :name, autofocus: true, placeholder: "Nome do dependente"%>
+    </div>
+    <div class="field">
+<%= i.text_field :surname, autofocus: :true, placeholder: "Sobrenome"%>
+    </div>
+    <div class="field">
+<%= i.text_field :relations, autofocus: true,placeholder: "Grau de parentesco(Filho, marido, etc.)"%>
+    </div>
+    <div class="field">
+<%=i.date_field :birth_date, autofocus: true, placeholder: "Data de nascimento"%>
+    </div>
+    <div class="field">
+<%= i.select :gender, [['Selecione', :default], ['Feminino', 'fem'], ['Masculino', 'man']],  placeholder: "Sexo"%>
+    </div>
+    <div class="actions">
+<%= i.submit "Criar perfil"%> 
+<%# <%=@profile.save%> 
+    </div>
+    <%# debug %>
+    <% end %>
+<%# <form action="/profile_associates" method="post"> <input type="text" name="name-field" placeholder="Nome do dependente"> %>
+
+

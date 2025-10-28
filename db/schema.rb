@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_09_23_185956) do
+ActiveRecord::Schema[8.0].define(version: 2025_10_22_141935) do
+  create_table "appointments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "profile_id", null: false
+    t.bigint "vaccine_id", null: false
+    t.string "booking_tk"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["profile_id"], name: "index_appointments_on_profile_id"
+    t.index ["vaccine_id"], name: "index_appointments_on_vaccine_id"
+  end
+
   create_table "profile_vaccines", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "profile_id", null: false
     t.bigint "vaccine_id", null: false
@@ -32,6 +42,12 @@ ActiveRecord::Schema[8.0].define(version: 2025_09_23_185956) do
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
+  create_table "profiles_vaccines", id: false, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "profile_id", null: false
+    t.bigint "vaccine_id", null: false
+    t.index ["profile_id", "vaccine_id"], name: "index_profiles_vaccines_on_profile_id_and_vaccine_id"
+    t.index ["vaccine_id", "profile_id"], name: "index_profiles_vaccines_on_vaccine_id_and_profile_id"
+  end
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -69,6 +85,8 @@ ActiveRecord::Schema[8.0].define(version: 2025_09_23_185956) do
     t.index ["email"], name: "index_views_on_email", unique: true
     t.index ["reset_password_token"], name: "index_views_on_reset_password_token", unique: true
   end
+  add_foreign_key "appointments", "profiles"
+  add_foreign_key "appointments", "vaccines"
 
   add_foreign_key "profile_vaccines", "profiles"
   add_foreign_key "profile_vaccines", "vaccines"

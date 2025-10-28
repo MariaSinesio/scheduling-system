@@ -290,16 +290,6 @@ GEM
     rdoc (6.15.0)
       erb
       psych (>= 4.0.0)
-<<<<<<< HEAD
-    regexp_parser (2.11.3)
-    reline (0.6.2)
-      io-console (~> 0.5)
-    responders (3.1.1)
-      actionpack (>= 5.2)
-      railties (>= 5.2)
-    rexml (3.4.4)
-    rubocop (1.80.2)
-=======
       tsort
     regexp_parser (2.11.3)
     reline (0.6.2)
@@ -309,7 +299,6 @@ GEM
       railties (>= 7.0)
     rexml (3.4.4)
     rubocop (1.81.6)
->>>>>>> config-devise
       json (~> 2.3)
       language_server-protocol (~> 3.17.0.2)
       lint_roller (~> 1.1.0)
@@ -323,13 +312,6 @@ GEM
     rubocop-ast (1.47.1)
       parser (>= 3.3.7.2)
       prism (~> 1.4)
-<<<<<<< HEAD
-    rubocop-performance (1.26.0)
-      lint_roller (~> 1.1)
-      rubocop (>= 1.75.0, < 2.0)
-      rubocop-ast (>= 1.44.0, < 2.0)
-    rubocop-rails (2.33.3)
-=======
     rubocop-performance (1.26.1)
       lint_roller (~> 1.1)
       rubocop (>= 1.75.0, < 2.0)
@@ -346,15 +328,9 @@ GEM
       rubocop-performance (>= 1.24)
       rubocop-rails (>= 2.30)
     ruby-progressbar (1.13.0)
-<<<<<<< HEAD
-    rubyzip (3.1.0)
-    securerandom (0.4.1)
-    selenium-webdriver (4.35.0)
-=======
     rubyzip (3.2.1)
     securerandom (0.4.1)
     selenium-webdriver (4.38.0)
->>>>>>> config-devise
       base64 (~> 0.2)
       logger (~> 1.4)
       rexml (~> 3.2, >= 3.2.5)
@@ -398,11 +374,7 @@ GEM
     thruster (0.1.16-x86_64-linux)
     timeout (0.4.3)
     tsort (0.2.0)
-<<<<<<< HEAD
-    turbo-rails (2.0.16)
-=======
     turbo-rails (2.0.20)
->>>>>>> config-devise
       actionpack (>= 7.1.0)
       railties (>= 7.1.0)
     tzinfo (2.0.6)
@@ -410,11 +382,7 @@ GEM
     unicode-display_width (3.2.0)
       unicode-emoji (~> 4.1)
     unicode-emoji (4.1.0)
-<<<<<<< HEAD
-    uri (1.0.3)
-=======
     uri (1.0.4)
->>>>>>> config-devise
     useragent (0.16.11)
     warden (1.2.9)
       rack (>= 2.0.9)

@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  profile: one
+  vaccine: one
+  booking_tk: MyString
+
+two:
+  profile: two
+  vaccine: two
+  booking_tk: MyString

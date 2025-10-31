@@ -4,6 +4,7 @@
 
 O ***Scheduling System*** é uma aplicação em Ruby on Rails projetada para _gerenciar agendamentos de forma eficiente_. O sistema permite que os usuários se cadastrem, gerenciem seus perfis e também os de seus dependentes, facilitando a marcação de compromissos para toda a família em um só lugar. Este projeto utiliza _Ruby on Rails_ como framework principal, _MySQL_ como banco de dados, _Devise_ para autenticação de usuários e simple-calendar para a fase de agendamento
 
+
 #### Como Executar o Projeto
 
 Para testar este projeto em seu ambiente local, siga os passos abaixo.

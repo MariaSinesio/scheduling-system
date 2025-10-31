@@ -1,14 +1,38 @@
 <h1>Quem vai ser vacinado?</h1>
 
-<div id="div-vaccines">
+<div id="div-vaccines" style="cursor:pointer;">
+  <ul>
     <% @vaccines.each do |vc| %>
-    <li>💉<strong> <%=vc.name%> </strong> </li>
-    <%end%>
+      <% assigned = Appointment.exists?(vaccine_id: vc.id, booking_tk: session[:booking_tk]) %>
+      <li>
+        💉 <strong><%= vc.name %></strong>
 
-     <p>Para quem é essa vacina?</p>
+        <% if assigned %>
+          <span class="badge">Associada</span>
+        <% else %>
+          <!-- link para escolher um perfil para essa vacina -->
+        <% end %>
+
+        <!-- mostra o total de perfis -->
+        <span style="margin-left:8px; font-size:small; color:gray;">
+          (<%= vc.profiles.count %> perfis)
+        </span>
+      </li>
+    <% end %>
+  </ul>
 </div>
 
- <script>
-    let div = document.getElementById("div-vaccines")
-    div.addEventListener("click", () => window.location.href = "")
- </script>
+<p style="font-size:small;">‼️ Selecione um perfil para prosseguir</p>
+
+<%= button_to "Prosseguir", data_vaccines_profile_associates_path %>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const div = document.getElementById("div-vaccines");
+    if (div) {
+      div.addEventListener("click", () => {
+        window.location.href = "http://127.0.0.1:3000/profile_associates";
+      });
+    }
+  });
+</script>

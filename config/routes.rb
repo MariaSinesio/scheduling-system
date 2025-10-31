@@ -14,7 +14,9 @@ Rails.application.routes.draw do
       resources :profile_associates, only: %i[index new create] do
         collection do
          get "select_profile"
-        # get "data_vaccines/:id", to: "data_vaccines#index"
+          # get "data_vaccines/:id", to: "data_vaccines#index"
+          post "data_vaccines", to: "data_vaccines#index"
+          post "associate"
       end
     end
   end

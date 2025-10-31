@@ -3,6 +3,10 @@
 
 </div>
 
+<% @profiles.each do |x| %>
+<li> <%= button_to "#{x.name}" "#{x.surname}",  associate_profile_associates_path(profile_id: x.id, vaccine_id: @vaccine&.id), method: :post %></li>  
+<% end %>
+
 <%= link_to "Adicionar perfil", new_profile_associate_path%>
 
 <%# É necessário tornar o perfil selecionável, a fim de selecionar a vacina para o respectivo dependente %>
@@ -14,4 +18,3 @@
 
 
 
->>>>>>> config-devise

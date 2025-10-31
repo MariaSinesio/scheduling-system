@@ -3,7 +3,7 @@
 <div id="div-vaccines" style="cursor:pointer;">
   <ul>
     <% @vaccines.each do |vc| %>
-      <% assigned = Appointment.exists?(vaccine_id: vc.id, booking_token: session[:booking_token]) %>
+      <% assigned = Appointment.exists?(vaccine_id: vc.id, booking_tk: session[:booking_tk]) %>
       <li>
         💉 <strong><%= vc.name %></strong>
 
@@ -11,7 +11,6 @@
           <span class="badge">Associada</span>
         <% else %>
           <!-- link para escolher um perfil para essa vacina -->
-          <%= link_to "Associar perfil", profile_associates_path(vaccine_id: vc.id), class: "btn-link" %>
         <% end %>
 
         <!-- mostra o total de perfis -->

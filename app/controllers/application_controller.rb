@@ -26,6 +26,12 @@ class ApplicationController < ActionController::Base
 
   # Only allow modern browsers supporting webp images, web push, badges, import maps, CSS nesting, and CSS :has.
   allow_browser versions: :modern
+
+  private
+
+  def warrant_booking_tk
+   session[:booking_tk] ||= SecureRandom.hex(10) # Isso aqui basicamente gera um token aleatório, é seguro
+  end
 end
 
 # se deslogar do user, redirecionar o usuário para o home

@@ -48,6 +48,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_10_22_141935) do
     t.index ["profile_id", "vaccine_id"], name: "index_profiles_vaccines_on_profile_id_and_vaccine_id"
     t.index ["vaccine_id", "profile_id"], name: "index_profiles_vaccines_on_vaccine_id_and_profile_id"
   end
+
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -85,9 +86,9 @@ ActiveRecord::Schema[8.0].define(version: 2025_10_22_141935) do
     t.index ["email"], name: "index_views_on_email", unique: true
     t.index ["reset_password_token"], name: "index_views_on_reset_password_token", unique: true
   end
+
   add_foreign_key "appointments", "profiles"
   add_foreign_key "appointments", "vaccines"
-
   add_foreign_key "profile_vaccines", "profiles"
   add_foreign_key "profile_vaccines", "vaccines"
   add_foreign_key "profiles", "users"

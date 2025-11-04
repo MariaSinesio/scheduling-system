@@ -1,5 +1,6 @@
 <h1 style="text-align:center;">Escolha a data de vacinação</h1>
 
-<%# <% @profile.each do |p|%>
-<%# <%= p.name%>
-<%# <%end%> 
+
+<%= month_calendar do |date| %>
+  <%= date %>
+<% end %>

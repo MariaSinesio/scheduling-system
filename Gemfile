@@ -20,7 +20,7 @@ gem "jbuilder"
 # gem "bcrypt", "~> 3.1.7"
 gem "devise", "~> 4.9"
 
-gem "sqlite3", "~> 2.1" # Uso do sqlite3 para testes
+gem "sqlite3", "~> 2.8" # Uso do sqlite3 para testes
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[ windows jruby ]
 

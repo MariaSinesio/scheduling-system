@@ -4,7 +4,6 @@ class ApplicationController < ActionController::Base
     root_path # Redireciona para o home, evitando erros
   end
 
-
   protect_from_forgery with: :exception
 
   before_action :authenticate_user! # Vai exigir a autenticação do usuário, menos a pagina principal
@@ -26,6 +25,10 @@ class ApplicationController < ActionController::Base
 
   # Only allow modern browsers supporting webp images, web push, badges, import maps, CSS nesting, and CSS :has.
   allow_browser versions: :modern
+
+  def profile_params
+    params.require(:profile).permit(:name, :relations, :gender, :birth_date, :surname, vaccine_ids: [])
+  end
 
   private
 

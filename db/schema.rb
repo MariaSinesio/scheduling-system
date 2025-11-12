@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_10_22_141935) do
+ActiveRecord::Schema[8.0].define(version: 2025_11_12_134323) do
   create_table "appointments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "profile_id", null: false
     t.bigint "vaccine_id", null: false
@@ -19,6 +19,13 @@ ActiveRecord::Schema[8.0].define(version: 2025_10_22_141935) do
     t.datetime "updated_at", null: false
     t.index ["profile_id"], name: "index_appointments_on_profile_id"
     t.index ["vaccine_id"], name: "index_appointments_on_vaccine_id"
+  end
+
+  create_table "events", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.integer "day"
+    t.datetime "hourly"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "profile_vaccines", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|

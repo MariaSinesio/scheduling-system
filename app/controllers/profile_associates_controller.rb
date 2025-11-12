@@ -19,7 +19,7 @@ class ProfileAssociatesController < ApplicationController
   profile_association = current_user.profiles.find_by(id: params[:profile_id])
   vaccine = Vaccine.find_by(id: params[:vaccine_id] || session[:selected_vaccine_ids]) # Sugestão do gpt já que não estava resgatando a vacina
   tk = session[:booking_tk]
-  if !profile_association # Utilizar unless
+  if !profile_association # Utilizar unless, não if... Corrigir mais tarde
     redirect_to profile_associates_path, alert: "Perfil não encontrado."
 
   elsif !vaccine
@@ -55,12 +55,6 @@ class ProfileAssociatesController < ApplicationController
     vaccine_ids = Array(session[:selected_vaccine_ids])&.map(&:to_i)
     @vaccines = Vaccine.where(id: vaccine_ids) if vaccine_ids.present?
     render :select_profile, alert: "Não conseguimos criar seu perfil, tente novamente mais tarde"
-  end
-
-private
-
-  def profile_params
-    params.require(:profile).permit(:name, :relations, :gender, :birth_date, :surname, vaccine_ids: [])
   end
   end
 end

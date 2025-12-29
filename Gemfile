@@ -21,7 +21,7 @@ gem "jbuilder"
 gem "devise", "~> 4.9"
 gem "simple_calendar"
 
-gem "sqlite3", "~> 2.1" # Uso do sqlite3 para testes
+gem "sqlite3", "~> 2.9" # Uso do sqlite3 para testes
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[ windows jruby ]
 
